@@ -24,27 +24,19 @@ namespace BinaryConverter
 
         static public string NumToBin(int number)
         {
-            if (number == 0)
-            {
-                return "0";
-            }
-
-            else
-            {
                 List<string> binStr = new List<string>();
 
-                while (number > 1)
+                while (number >= 2)
                 {
                     binStr.Add(Convert.ToString(number % 2));
                     number = (int)Math.Floor((double)number / 2);
                 }
 
 
-                binStr.Add("1");
+                binStr.Add(number.ToString());
                 binStr.Reverse();
                 return string.Join("", binStr);
-            }
-            
+
         }
 
         static public string BinToNum(string bin)

@@ -25,12 +25,12 @@ namespace BinaryConverter
 
         private void Hexidecimal_textbox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Regex.IsMatch(e.KeyChar.ToString(), "[^\b0-9a-zA-Z]"))
+            if (Regex.IsMatch(e.KeyChar.ToString(), "[^\b0-9a-fA-F]"))
             {
                 e.Handled = true;
             }
 
-            if (Regex.IsMatch(e.KeyChar.ToString(), "[a-z]"))
+            if (Regex.IsMatch(e.KeyChar.ToString(), "[a-f]"))
             {
                 e.KeyChar = Convert.ToChar(e.KeyChar.ToString().ToUpper());
             }
@@ -112,10 +112,11 @@ namespace BinaryConverter
 
         private void Decimal_textbox_TextChanged(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Decimal_textbox.Text))
+            if (String.IsNullOrEmpty(Decimal_textbox.Text) || Decimal_textbox.Text.Equals("0"))
             {
                 Binary_textbox.Text = "0";
                 Hexidecimal_textbox.Text = "0";
+                Decimal_textbox.SelectAll();
             }
             else
             {
@@ -140,10 +141,11 @@ namespace BinaryConverter
 
         private void Binary_textbox_TextChanged(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Binary_textbox.Text))
+            if (String.IsNullOrEmpty(Binary_textbox.Text) || Binary_textbox.Text.Equals("0"))
             {
                 Decimal_textbox.Text = "0";
                 Hexidecimal_textbox.Text = "0";
+                Binary_textbox.SelectAll();
             }
             else
             {
@@ -168,10 +170,11 @@ namespace BinaryConverter
 
         private void Hexidecimal_textbox_TextChanged(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Hexidecimal_textbox.Text))
+            if (String.IsNullOrEmpty(Hexidecimal_textbox.Text) || Hexidecimal_textbox.Text.Equals("0"))
             {
                 Decimal_textbox.Text = "0";
-                Binary_textbox.Text = "0"; 
+                Binary_textbox.Text = "0";
+                Hexidecimal_textbox.SelectAll();
             }
             else
             {
