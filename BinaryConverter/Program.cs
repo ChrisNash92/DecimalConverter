@@ -22,14 +22,14 @@ namespace BinaryConverter
 
         }
 
-        static public string NumToBin(int number)
+        static public string NumToBin(double number)
         {
                 List<string> binStr = new List<string>();
 
                 while (number >= 2)
                 {
                     binStr.Add(Convert.ToString(number % 2));
-                    number = (int)Math.Floor((double)number / 2);
+                    number = Math.Floor(number / 2);
                 }
 
 
@@ -41,13 +41,13 @@ namespace BinaryConverter
 
         static public string BinToNum(string bin)
         {
-            int number = 0; 
+            double number = 0; 
 
             for (int i = 0; i < bin.Length; i++)
             {
                 if(bin[i].Equals('1'))
                 {
-                    number += (int)Math.Pow(2,bin.Length - i - 1);
+                    number += Math.Pow(2,bin.Length - i - 1);
                 }
                 if(Regex.IsMatch(bin[i].ToString(), "[^\b0-1]"))
                 {
@@ -59,7 +59,7 @@ namespace BinaryConverter
             return number.ToString();   
         }
 
-        static public string NumToHex(int number)
+        static public string NumToHex(double number)
         {
             List<string> hex = new List<string>();
             Dictionary<int, string> hexKey = new Dictionary<int, string>()
@@ -75,7 +75,7 @@ namespace BinaryConverter
             while(number >= 16)
             {
                 hex.Add(Convert.ToString(number % 16));
-                number = (int)Math.Floor((double)number / 16);
+                number = Math.Floor(number / 16);
 
             }
 

@@ -122,8 +122,8 @@ namespace BinaryConverter
             {
                 try
                 {
-                    Binary_textbox.Text = Program.NumToBin(Convert.ToInt32(Decimal_textbox.Text));
-                    Hexidecimal_textbox.Text = Program.NumToHex(Convert.ToInt32(Decimal_textbox.Text));
+                    Binary_textbox.Text = Program.NumToBin(Convert.ToDouble(Decimal_textbox.Text));
+                    Hexidecimal_textbox.Text = Program.NumToHex(Convert.ToDouble(Decimal_textbox.Text));
                 }
                 catch(OverflowException ex)
                 {
@@ -152,7 +152,7 @@ namespace BinaryConverter
                 try
                 {
                     Decimal_textbox.Text = Program.BinToNum(Binary_textbox.Text);
-                    Hexidecimal_textbox.Text = Program.NumToHex(Convert.ToInt32(Program.BinToNum(Binary_textbox.Text)));
+                    Hexidecimal_textbox.Text = Program.NumToHex(Convert.ToDouble(Program.BinToNum(Binary_textbox.Text)));
                 }
                 catch (OverflowException ex)
                 {
@@ -181,7 +181,7 @@ namespace BinaryConverter
                 try
                 {
                     Decimal_textbox.Text = Program.HexToNum(Hexidecimal_textbox.Text);
-                    Binary_textbox.Text = Program.NumToBin(Convert.ToInt32(Program.HexToNum(Hexidecimal_textbox.Text)));
+                    Binary_textbox.Text = Program.NumToBin(Convert.ToDouble(Program.HexToNum(Hexidecimal_textbox.Text)));
                 }
                 catch (OverflowException ex)
                 {
